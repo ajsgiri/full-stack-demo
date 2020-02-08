@@ -15,10 +15,11 @@ export class ListComponent implements OnInit {
   }
 
   showConfig() {
-    this.notable
-      .getList()
-      .subscribe( (data: { text: string}) => {
-        this.text = data.text;
-      });
+    this.notable.getProviders().subscribe(data => {
+      console.log(data);
+    });
+    this.notable.getProviderAppointments(1).subscribe(data => {
+      console.log(data);
+    });
   }
 }
